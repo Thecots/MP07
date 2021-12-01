@@ -1,0 +1,261 @@
+/* 
+    pROJECTE3 -10H
+    1. ACABAR MÈTODES 'PUT' I 'DELETE' PER A USUARIS
+    2. cREAR ELS MATEIXOS MÈTODES PER A 'CLIENTES' (MODEL CLIENT HA DE TENIR 7 CAMPS MINIM)
+    3. nOMÉS EL GET DE 'SERVEIS' (MODEL SERVEI HA DE TENIR COM A MINIM 5 CAMPS)
+    ================= ELS PUNTS ANTEIROS ES PUJARA A GITHUB ========================
+    4. DE FORMA ORDANDA, MOSTRAR TOTES LES CAPUTRES DE POSTMAN ON OS VEIGI QUE FUNCIONEN TOTS EL METODES
+    ================== EL PUNT 4 S'ENTREGA A HEROKU ======================
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat',sans-serif;
+}
+
+html{
+    background: #dae0e6;
+}
+
+header{
+    background: rgb(37, 37, 37);
+    padding: 5px;
+    color: white;
+}
+header h1{
+    font-weight: 300;
+}
+
+html main {
+    background: #ffff;
+    border-radius: 5px;
+    padding: 15px;
+    max-width: 100%;
+    width: fit-content;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 650px 250px;
+    grid-template-rows: repeat(3, auto);
+
+
+    gap: 10px;
+
+}
+
+section {
+    width: 650px;
+    height: auto;
+    background-color: royalblue;
+    padding: 5px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns:  repeat(7,1fr);
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+
+.pice{
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.pice::after{
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    box-shadow: inset 2px 3px 0 rgba(0, 0, 0, 0.281);
+    
+}
+
+.pice1::after{
+    background: lightgreen;
+    box-shadow: inset 2px 1px 0 rgba(0, 0, 0, 0.281);
+    
+}
+
+.pice2::after{
+    background: tomato;
+    box-shadow: inset 2px 1px 0 rgba(0, 0, 0, 0.281);
+    
+}
+
+
+
+.btn{
+    width: auto;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 10px;
+    padding:  10px 15px;
+    height: auto;
+}
+
+
+
+.btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 100px;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    font-size: 25px;
+    transition: 0.4s ease all;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.295);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.195);
+}
+
+
+.btn a:hover{
+    transform: scale(1.02);
+    background-color: lightcoral;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.295);
+}
+
+.btn a:active{
+    transform: scale(0.98);
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.295);
+}
+
+.restart{
+    margin-top: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(46, 46, 46);
+    border-radius: 5px;
+    width: 100%;
+    height: 100px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 25px;
+    transition: 0.4s ease all;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.295);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.195);
+}
+
+.xdxd{
+    position: absolute;
+    bottom: 0px;
+}
+
+.restart:hover{
+    transform: scale(1.02);
+    background: rgb(29, 29, 29);
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.295);
+}
+
+.restart:active{
+    transform: scale(0.98);
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.295);
+}
+
+
+
+/* GRID */
+.menu{
+    background: rgb(255, 73, 41);
+    grid-column: 1/3;
+    grid-row: 1/2;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.game{
+    grid-column: 1/2;
+    grid-row: 2/2;
+}
+
+.buttons {
+    width: 650px;
+    grid-row: 3/3;    
+    grid-column: 1/2;
+}
+.info{
+    grid-row: 2/4;    
+    grid-column: 2/2;
+    position: relative;
+}
+.restart{
+
+}
+
+
+.screenToRemove{
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    z-index: 10;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000000b3;
+}
+
+.screenToRemove .box{
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.screenToRemove p {
+    font-size: 35px;font-weight: bolder;
+}
+.screenToRemove a {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.turn1{
+    background: lightgreen;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: bolder;
+    font-size: 25px;
+
+}
+
+.turn2{
+    background: tomato;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: bolder;
+    font-size: 25px;
+
+}
+
+.hiddeWinner{
+    display: none;
+}

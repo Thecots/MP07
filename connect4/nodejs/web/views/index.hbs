@@ -1,0 +1,28 @@
+<header>
+    <h1>DCOTS · CONNECT 4</h1>
+</header>
+ <main>
+       <section class="game">
+       </section>
+    <div class="buttons">
+       <section class="btn">
+            <a href="#" onclick="position(1)">1</a>
+            <a href="#" onclick="position(2)">2</a>
+            <a href="#" onclick="position(3)">3</a>
+            <a href="#" onclick="position(4)">4</a>
+            <a href="#" onclick="position(5)">5</a>
+            <a href="#" onclick="position(6)">6</a>
+            <a href="#" onclick="position(7)">7</a>
+       </section>
+    </div>
+    <div class="info">
+        <div class="turn turn{{turn}}">
+            <p>JUGADOR {{turn}}</p>
+        </div>
+        <a href="#" class="restart xdxd" onclick="restart()">RESTART</a>
+    </div>
+    <div class="menu hiddeWinner">
+        <p>error</p>
+    </div>
+</main>
+<script src="app.js"></script>

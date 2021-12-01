@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat',sans-serif;
+}
+img{
+  user-select: none;
+}
+body {
+  width: 100%;
+  background: #000a20;
+}
+
+.turn{
+  background: white;
+  width: 600px;
+  border-radius: 3px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px auto;
+}
+.turn h1{
+  font-weight: bolder;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.turn h2{
+  font-size: 20px;
+  font-weight: 600;
+}
+.board {
+  margin: 2% auto;
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-areas:
+    ". m1 ."
+    "m5 . m2"
+    "m4 . m3";
+}
+.board img {
+  position: absolute;
+  z-index: 10;
+  transition: transform 0.3s;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: -5px;
+}
+.board img:hover {
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.226);
+}
+
+.board img:nth-child(1) {
+  position: absolute;
+  cursor: auto;
+  z-index: 1;
+  opacity: 80%;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0) !important;
+}
+.board img:nth-child(2) {
+  grid-area: m1;
+  transform: translate(9px, 29px);
+}
+.board img:nth-child(2):hover {
+  transform: translate(10px, 30px) scale(1.05);
+}
+.board img:nth-child(3) {
+  grid-area: m2;
+  transform: translate(3px, -38px);
+}
+.board img:nth-child(3):hover {
+  transform: translate(3px, -38px) scale(1.05);
+}
+.board img:nth-child(4) {
+  grid-area: m3;
+  transform: translate(-66px, -9px);
+}
+.board img:nth-child(4):hover {
+  transform: translate(-66px, -9px) scale(1.05);
+}
+.board img:nth-child(5) {
+  grid-area: m4;
+  transform: translate(98px, -4px);
+}
+.board img:nth-child(5):hover {
+  transform: translate(98px, -4px) scale(1.05);
+}
+.board img:nth-child(6) {
+  grid-area: m5;
+  transform: translate(24px, -31px);
+}
+.board img:nth-child(6):hover {
+  transform: translate(24px, -31px) scale(1.05);
+}
+
+main{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 55px;
+}
+main h2{
+  font-weight: bolder;
+  font-size: 45px;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main h2::after{
+  content: "(EL JUGADOR QUE GANE DOS RONDAS GANA)";
+  margin: 60px;
+  text-align: center;
+  position: absolute;
+  color: white;
+  font-size: 18px;
+}
+main h1{
+  padding: 10px 45px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 0 1px rgb(187, 187, 187);
+  transition: transform 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+}
+main h1:hover{
+  transform: translate(5px, 5px);
+  box-shadow: 0px 0px 0 0px rgb(187, 187, 187);
+
+}
+.result{
+  margin: 0 auto;
+  max-width: 100%;
+  width: fit-content;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px 150px;
+}
+
+.result > div:first-child{
+  text-align: center;
+  margin: 10px;
+  font-weight: 500;
+}
+.result > div:first-child h1{
+  font-weight: 700;
+  margin-bottom: 55px;
+}
+.result .si{
+  display: grid;
+  gap: 25px;
+  grid-template-areas:
+  "p1 i"
+  "p2 i" ;
+}
+
+.si div:nth-child(1){
+  grid-area: p1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.si div:nth-child(2){
+  grid-area: p2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.si div:nth-child(1) img, .si div:nth-child(2) img{
+  width: 150px;
+}
+.si div:nth-child(1) h1, .si div:nth-child(2) h1{
+  font-size: 25px;
+}
+.si div:nth-child(3){
+  grid-area: i;
+  margin-left: 70px;
+}
+.si div:nth-child(3) img{
+  width: 500px;
+}
+.result div:nth-child(3) h2{
+  margin: 0 auto;
+  font-size: 20px;
+  padding: 10px 45px;
+  width: fit-content;
+  color: white;
+  background-color: #000a20;
+  border-radius: 5px;
+  box-shadow: 5px 5px 0 1px rgb(6, 0, 14);
+  transition: transform 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-top: 35px;
+
+}
+.result div:nth-child(3) h2:hover {
+  transform: translate(5px, 5px);
+  box-shadow: 0px 0px 0 0px rgb(187, 187, 187);
+
+}
+
+/* ----- winner screen ----- */
+main.winner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.overhidden {
+  overflow: hidden;
+}
+
+.modal {
+  transform: scale(1.5);
+  width: 300px;
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.16);
+  background-color: #fff;
+  border-radius: 0.25rem;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.emoji {
+  display: block;
+  text-align: center;
+  font-size: 5rem;
+  line-height: 5rem;
+  transform: scale(0.5);
+  animation: scaleCup 2s infinite alternate;
+}
+
+@keyframes scaleCup {
+  0% {
+    transform: scale(0.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.wrapper h1 {
+  text-align: center;
+  font-size: 1em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-btn {
+  display: block;
+  margin: 0 -2rem -2rem -2rem;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background-color: var(--green);
+  text-decoration: none;
+}
+
+@keyframes confettiRain {
+  0% {
+    opacity: 1;
+    margin-top: -100vh;
+    margin-left: -200px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 100vh;
+    margin-left: 200px;
+  }
+}
+.confetti {
+  opacity: 0;
+  position: absolute;
+  width: 1rem;
+  height: 1.5rem;
+  transition: 500ms ease;
+  animation: confettiRain 5s infinite;
+}
+
+#confetti-wrapper {
+  overflow: hidden !important;
+}
+.modal-btn{
+  display: block;
+  margin: 0 -2rem -2rem -2rem;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background-color: lightgreen;
+  text-decoration: none;
+}
